@@ -32,9 +32,22 @@ const UserSchema = new mongoose.Schema({
         }
     },
 
-    location: {
+    address: {
         type: String,
-        trim: true
+        trim: true,
+        required: true
+    },
+
+    location: {
+        type: {
+            type: String,
+            enum: ['Point']
+        },
+        coordinates: {
+            type: ['Number'],
+            index: '2dsphere'
+        },
+        formattedAddress: String
     }
 }, {
     timestamps: true
