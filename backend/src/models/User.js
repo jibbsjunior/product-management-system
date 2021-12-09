@@ -55,6 +55,17 @@ const UserSchema = new mongoose.Schema({
     timestamps: true
 });
 
+UserSchema.methods.toJSON = function () {
+    const user = this;
+
+    const userObj = user.toObject();
+
+    delete userObj.password;
+    // delete
+
+    return userObj;
+}
+
 UserSchema.pre('save', async function (next) {
     const user = this;
     if (user.isModified("password")) {
@@ -73,6 +84,6 @@ UserSchema.pre('save', async function (next) {
 
     this.address = undefined;
     next();
-})
+});
 
 module.exports = mongoose.model("User", UserSchema);

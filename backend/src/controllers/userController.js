@@ -31,7 +31,7 @@ const signup = async (req, res, next) => {
 }
 
 const login = (req, res) => {
-
+    
 }
 
 module.exports = {
