@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcrypt');
+const geocoder = require('../utils/geocode');
 
 const UserSchema = new mongoose.Schema({
 
@@ -18,9 +19,9 @@ const UserSchema = new mongoose.Schema({
         unique: true,
         trim: true,
         lowercase: true,
-        validate(value) {
-            if (!validator.isEmail(value)) throw new Error("ooops! that's not a valid email addres!");
-        }
+        // validate(value) {
+        //     if (!validator.isEmail(value)) throw new Error("ooops! that's not a valid email addres!");
+        // }
     },
 
     password: {
@@ -62,6 +63,16 @@ UserSchema.pre('save', async function (next) {
             .then((hash) => user.password = hash)
             .catch((ex) => console.log(ex));
     }
+
+    const loc = await geocoder.geocode(this.address);
+    this.location = {
+        type: 'Point',
+        coordinates: [loc[0].longitude, loc[0].latitude],
+        formattedAddress: loc[0].formattedAddress
+    }
+
+    this.address = undefined;
+    next();
 })
 
 module.exports = mongoose.model("User", UserSchema);
