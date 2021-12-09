@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\AJIBOLA\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add jest --save-dev
+  C:\Program Files\nodejs\node.exe C:\Users\AJIBOLA\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add morgan
 
 PATH: 
   C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\AJIBOLA\bin;C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin;C:\Python39\Scripts;C:\Python39;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\HashiCorp\Vagrant\bin;C:\Program Files\dotnet;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Program Files\doctl;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\150\DTS\Binn;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn;C:\Program Files\Azure Data Studio\bin;C:\Program Files\nodejs;C:\Users\AJIBOLA\AppData\Local\Programs\Python\Python310\Scripts;C:\Users\AJIBOLA\AppData\Local\Programs\Python\Python310;C:\Users\AJIBOLA\AppData\Local\Microsoft\WindowsApps;C:\Users\AJIBOLA\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\AJIBOLA\AppData\Roaming\Composer\vendor\bin;C:\Program Files\heroku\bin;C:\Users\AJIBOLA\.dotnet\tools;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Azure Data Studio\bin;C:\Users\AJIBOLA\AppData\Roaming\npm
@@ -14,22 +14,17 @@ Platform:
   win32 x64
 
 Trace: 
-  SyntaxError: C:\Users\AJIBOLA\Desktop\projects\pms\backend\package.json: Unexpected string in JSON at position 167
-      at JSON.parse (<anonymous>)
-      at C:\Users\AJIBOLA\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1625:59
-      at Generator.next (<anonymous>)
-      at step (C:\Users\AJIBOLA\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
-      at C:\Users\AJIBOLA\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
+  Error: EPERM: operation not permitted, unlink 'C:\Users\AJIBOLA\Desktop\projects\pms\backend\node_modules\.bin\env-cmd'
 
 npm manifest: 
   {
     "name": "pms",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "app.js",
     "scripts": {
       "start": "node app.js",
-      "dev": "env-cmd nodemon app.js"
+      "dev": "env-cmd nodemon app.js",
       "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
